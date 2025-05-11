@@ -24,7 +24,7 @@ public class RegisterPatientTest extends BaseClass {
 	 //,{"bill2","tim2"}
 	 public Object[][] registerPatData()
 	 {
-		 return new Object[][] {{"rabin1","jack1"}};
+		 return new Object[][] {{"rabin2","jack2"}};
 	 }
 	
 	
