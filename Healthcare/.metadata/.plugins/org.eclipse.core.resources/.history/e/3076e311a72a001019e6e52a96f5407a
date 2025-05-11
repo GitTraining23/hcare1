@@ -1,0 +1,56 @@
+package testClasses;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+import locPages.AddVitalDetails;
+import utilities.BaseClass;
+
+public class AddVitalTest extends BaseClass {
+
+	LoginTest lt=new LoginTest();
+
+	@Test
+	public void addVitals() throws InterruptedException {
+		lt.excuteLoginTest();
+		//addExplicitWait(AddVitalDetails.click_PatientName());
+		//driver.findElement(AddVitalDetails.click_PatientName()).click();
+		addExplicitWait(AddVitalDetails.click_appointment());
+		driver.findElement(AddVitalDetails.click_appointment()).click();
+		
+		addExplicitWait(AddVitalDetails.click_CreateAppointment());
+		driver.findElement(AddVitalDetails.click_CreateAppointment()).click();
+		
+		addExplicitWait(AddVitalDetails.searchby_name());
+		driver.findElement(AddVitalDetails.searchby_name()).sendKeys("steve max");
+
+		addExplicitWait(AddVitalDetails.search_button());
+		driver.findElement(AddVitalDetails.search_button()).click();
+		
+		addExplicitWait(AddVitalDetails.recordVitals());
+		driver.findElement(AddVitalDetails.recordVitals()).click();
+
+		addExplicitWait(AddVitalDetails.clickOnStartVisit());
+		driver.findElement(AddVitalDetails.clickOnStartVisit()).click();
+		
+		addExplicitWait(AddVitalDetails.selectVisit_type());
+		driver.findElement(AddVitalDetails.selectVisit_type());
+		
+		addExplicitWait(AddVitalDetails.selectVisittype_text());
+		driver.findElement(AddVitalDetails.selectVisittype_text()).click();
+		
+		addExplicitWait(AddVitalDetails.select_punctuality());
+		WebElement punc=driver.findElement(AddVitalDetails.select_punctuality());
+			Select sel=new Select(punc);
+			sel.selectByVisibleText("On time");
+		
+
+			addExplicitWait(AddVitalDetails.click_StartVisitButton());
+			driver.findElement(AddVitalDetails.click_StartVisitButton()).click();
+		
+		
+	}
+	
+}

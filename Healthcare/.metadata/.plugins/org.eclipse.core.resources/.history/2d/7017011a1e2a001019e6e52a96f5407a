@@ -1,0 +1,20 @@
+package locPages;
+
+import org.openqa.selenium.By;
+
+public class AddVitalDetails {
+	public static By click_appointment()
+	{
+		
+		return	By.xpath("(//a[@class='cds--side-nav__link'])[1]");
+	}
+
+	
+	public static By searchby_name() {
+		//String search_name=	 "//input[@class='cds--search-input' and @placeholder='Search for a patient by name or identifier number']";
+		
+		return By.xpath("(//input[@class='cds--search-input'])[2]");
+		
+		
+	}
+}

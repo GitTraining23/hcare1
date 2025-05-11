@@ -1,0 +1,21 @@
+package testClasses;
+
+import org.testng.annotations.Test;
+
+import locPages.AddVitalDetails;
+import utilities.BaseClass;
+
+public class AddVitalTest extends BaseClass {
+
+	LoginTest lt=new LoginTest();
+
+	@Test
+	public void addVitals() throws InterruptedException {
+		lt.excuteLoginTest();
+		addExplicitWait(AddVitalDetails.click_PatientName());
+		driver.findElement(AddVitalDetails.click_PatientName()).click();
+
+		
+	}
+	
+}

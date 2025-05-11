@@ -1,0 +1,41 @@
+package testClasses;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+
+import locPages.AddVitalDetails;
+import utilities.BaseClass;
+
+public class AddVitalTest extends BaseClass {
+
+	LoginTest lt=new LoginTest();
+
+	@Test
+	public void addVitals() throws InterruptedException {
+		lt.excuteLoginTest();
+		//addExplicitWait(AddVitalDetails.click_PatientName());
+		//driver.findElement(AddVitalDetails.click_PatientName()).click();
+		addExplicitWait(AddVitalDetails.click_appointment());
+		driver.findElement(AddVitalDetails.click_appointment()).click();
+		
+		addExplicitWait(AddVitalDetails.click_CreateAppointment());
+		driver.findElement(AddVitalDetails.click_CreateAppointment()).click();
+		
+		addExplicitWait(AddVitalDetails.searchby_name());
+		driver.findElement(AddVitalDetails.searchby_name()).sendKeys("bill2 tim2");
+
+		addExplicitWait(AddVitalDetails.search_button());
+		driver.findElement(AddVitalDetails.search_button()).click();
+		
+		addExplicitWait(AddVitalDetails.recordVitals());
+		driver.findElement(AddVitalDetails.recordVitals()).click();
+
+		addExplicitWait(AddVitalDetails.clickOnStartVisit());
+		driver.findElement(AddVitalDetails.clickOnStartVisit()).click();
+		
+		addExplicitWait(AddVitalDetails.selectVisit_type());
+		driver.findElement(AddVitalDetails.selectVisit_type());
+		
+	}
+	
+}

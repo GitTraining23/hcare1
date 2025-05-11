@@ -1,0 +1,74 @@
+package testClasses;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import locPages.LoginPage;
+import utilities.BaseClass;
+
+public class AddvitTest extends BaseClass{
+	
+	LoginTest lt=new LoginTest();
+	@Test
+	public void recordvitals() throws InterruptedException {
+	
+		lt.excuteLoginTest();
+		//(//div[@class='cds--data-table-content'])[1]//tbody//tr[@class='cds--parent-row']
+		Thread.sleep(15000);
+	List<WebElement> rows=driver.findElements(By.xpath("(//div[@class='cds--data-table-content'])[1]//tbody//tr[@class='cds--parent-row']"));
+	//(//div[@class="cds--data-table-content"])[1]//tbody//tr[@class="cds--parent-row"][1]//td[4]
+	addImplicitWait();
+	System.out.println(rows.size());
+	
+
+	for(int i=1;i<=rows.size();i++)
+	{				
+		
+		addImplicitWait();
+		WebElement name=driver.findElement(By.xpath("(//div[@class='cds--data-table-content'])[1]//tbody//tr[@class='cds--parent-row']["+i+"]//td[4]"));
+					System.out.println(name.getText());
+					addImplicitWait();
+
+		if(name.getText().equalsIgnoreCase("steve max"))
+				
+		{
+			System.out.println("haii");
+			//driver.findElement(By.xpath("(//a[@href='openmrs/spa/patient/49a69795-46ab-4b84-b0ac-722bc253c413/chart'])[1]")).click();
+			//driver.findElement(By.linkText("steve max")).click();
+			addImplicitWait();
+			driver.findElement(By.linkText("steve max")).click();
+			addImplicitWait();
+			swithchWindow();
+			
+		}
+		
+	
+	}
+	
+	//button[@class='cds--btn cds--btn--lg cds--layout--size-lg cds--btn--ghost']
+		//input[@name='Temperature']
+	//input[@name='systolic']
+	//input[@name='diastolic']
+	//input[@name='Pulse']
+	//input[@name='Respiration rate']
+	
+	}
+	
+	public void swithchWindow()
+	{
+		Set<String> winHandles=driver.getWindowHandles();
+		Iterator<String> it=winHandles.iterator();
+		String pw=it.next();
+		System.out.println("par"+pw);
+		String ChWin=it.next();
+		System.out.println("par"+ChWin);
+
+		driver.switchTo().window(pw);
+	}
+	
+}

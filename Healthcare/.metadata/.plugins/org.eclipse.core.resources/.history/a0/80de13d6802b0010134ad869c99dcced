@@ -1,0 +1,56 @@
+package testClasses;
+
+import java.io.IOException;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+import locPages.StartVisitPage;
+import locPages.StartVisitPage;
+import utilities.BaseClass;
+import utilities.FetchDataFromProp;
+
+public class StartVisitTest extends BaseClass{
+	LoginTest lt=new LoginTest();
+	@Test
+	public void start_visit() throws InterruptedException, IOException
+	{
+		lt.excuteLoginTest();
+		//addExplicitWait(AddVitalDetails.click_PatientName());
+		//driver.findElement(AddVitalDetails.click_PatientName()).click();
+		addExplicitWait(StartVisitPage.click_appointment());
+		driver.findElement(StartVisitPage.click_appointment()).click();
+		
+		addExplicitWait(StartVisitPage.click_CreateAppointment());
+		driver.findElement(StartVisitPage.click_CreateAppointment()).click();
+		
+		addExplicitWait(StartVisitPage.searchby_name());
+		driver.findElement(StartVisitPage.searchby_name()).sendKeys(FetchDataFromProp.readDataFromProp().getProperty("patFullName"));
+
+		addExplicitWait(StartVisitPage.search_button());
+		driver.findElement(StartVisitPage.search_button()).click();
+		
+		/*addExplicitWait(AddVitalDetails.recordVitals());
+		driver.findElement(AddVitalDetails.recordVitals()).click();*/
+
+		addExplicitWait(StartVisitPage.clickOnStartVisit());
+		driver.findElement(StartVisitPage.clickOnStartVisit()).click();
+		
+		addExplicitWait(StartVisitPage.selectVisit_type());
+		driver.findElement(StartVisitPage.selectVisit_type());
+		
+		addExplicitWait(StartVisitPage.selectVisittype_text());
+		driver.findElement(StartVisitPage.selectVisittype_text()).click();
+		
+		addExplicitWait(StartVisitPage.select_punctuality());
+		WebElement punc=driver.findElement(StartVisitPage.select_punctuality());
+			Select sel=new Select(punc);
+			sel.selectByVisibleText("On time");
+		
+
+			addExplicitWait(StartVisitPage.click_StartVisitButton());
+			driver.findElement(StartVisitPage.click_StartVisitButton()).click();
+	}
+
+}

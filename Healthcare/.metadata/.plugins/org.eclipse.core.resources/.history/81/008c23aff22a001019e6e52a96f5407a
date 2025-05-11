@@ -1,0 +1,101 @@
+package testClasses;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+import locPages.AddVitalDetailPage;
+import utilities.BaseClass;
+
+public class AddVitalTest extends BaseClass {
+
+	LoginTest lt=new LoginTest();
+
+	@Test
+	public void addVitals() throws InterruptedException {
+		lt.excuteLoginTest();
+		//addExplicitWait(AddVitalDetails.click_PatientName());
+		//driver.findElement(AddVitalDetails.click_PatientName()).click();
+		addExplicitWait(AddVitalDetailPage.click_appointment());
+		driver.findElement(AddVitalDetailPage.click_appointment()).click();
+		
+		addExplicitWait(AddVitalDetailPage.click_CreateAppointment());
+		driver.findElement(AddVitalDetailPage.click_CreateAppointment()).click();
+		
+		addExplicitWait(AddVitalDetailPage.searchby_name());
+		driver.findElement(AddVitalDetailPage.searchby_name()).sendKeys("max ocornor");
+
+		addExplicitWait(AddVitalDetailPage.search_button());
+		driver.findElement(AddVitalDetailPage.search_button()).click();
+		
+		/*addExplicitWait(AddVitalDetails.recordVitals());
+		driver.findElement(AddVitalDetails.recordVitals()).click();*/
+
+		addExplicitWait(AddVitalDetailPage.clickOnStartVisit());
+		driver.findElement(AddVitalDetailPage.clickOnStartVisit()).click();
+		
+		addExplicitWait(AddVitalDetailPage.selectVisit_type());
+		driver.findElement(AddVitalDetailPage.selectVisit_type());
+		
+		addExplicitWait(AddVitalDetailPage.selectVisittype_text());
+		driver.findElement(AddVitalDetailPage.selectVisittype_text()).click();
+		
+		addExplicitWait(AddVitalDetailPage.select_punctuality());
+		WebElement punc=driver.findElement(AddVitalDetailPage.select_punctuality());
+			Select sel=new Select(punc);
+			sel.selectByVisibleText("On time");
+		
+
+			addExplicitWait(AddVitalDetailPage.click_StartVisitButton());
+			driver.findElement(AddVitalDetailPage.click_StartVisitButton()).click();
+			
+			driver.findElement(By.xpath("//a[@href='/openmrs/spa/home']")).click();
+			addImplicitWait();
+			driver.findElement(By.linkText("steve jobs")).click();
+
+			addExplicitWait(AddVitalDetailPage.clickRecord_vitals());
+			driver.findElement(AddVitalDetailPage.clickRecord_vitals()).click();
+			
+			addExplicitWait(AddVitalDetailPage.add_Temp());
+			driver.findElement(AddVitalDetailPage.add_Temp()).sendKeys("99");
+			
+			addExplicitWait(AddVitalDetailPage.add_Systolic());
+			driver.findElement(AddVitalDetailPage.add_Systolic()).sendKeys("125");
+			
+			addExplicitWait(AddVitalDetailPage.add_Diastolic());
+			driver.findElement(AddVitalDetailPage.add_Diastolic()).sendKeys("80");
+			
+			addExplicitWait(AddVitalDetailPage.add_Pulse());
+			driver.findElement(AddVitalDetailPage.add_Pulse()).sendKeys("89");
+			
+			addExplicitWait(AddVitalDetailPage.add_Respiration());
+			driver.findElement(AddVitalDetailPage.add_Respiration()).sendKeys("4");
+			
+			addExplicitWait(AddVitalDetailPage.add_OxygenSat());
+			driver.findElement(AddVitalDetailPage.add_OxygenSat()).sendKeys("95");
+			
+			addExplicitWait(AddVitalDetailPage.add_Notes());
+			driver.findElement(AddVitalDetailPage.add_Notes()).sendKeys("good");
+			
+			addExplicitWait(AddVitalDetailPage.add_Weight());
+			driver.findElement(AddVitalDetailPage.add_Weight()).sendKeys("70");
+			
+			addExplicitWait(AddVitalDetailPage.add_Height());
+			driver.findElement(AddVitalDetailPage.add_Height()).sendKeys("150");
+			
+			addExplicitWait(AddVitalDetailPage.add_BMI());
+			driver.findElement(AddVitalDetailPage.add_BMI()).sendKeys("20");
+			
+			addExplicitWait(AddVitalDetailPage.add_MUAC());
+			driver.findElement(AddVitalDetailPage.add_MUAC()).sendKeys("20");
+			
+			addExplicitWait(AddVitalDetailPage.saveAndClose());
+			driver.findElement(AddVitalDetailPage.saveAndClose()).click();
+			
+			
+	}
+	
+}

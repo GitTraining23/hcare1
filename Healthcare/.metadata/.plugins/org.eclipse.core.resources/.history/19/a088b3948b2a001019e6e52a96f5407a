@@ -1,0 +1,57 @@
+package testClasses;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+
+import locPages.AddVitalDetails;
+import utilities.BaseClass;
+
+public class AddVitalTest extends BaseClass {
+
+	LoginTest lt=new LoginTest();
+
+	@Test
+	public void addVitals() throws InterruptedException {
+		lt.excuteLoginTest();
+		//addExplicitWait(AddVitalDetails.click_PatientName());
+		//driver.findElement(AddVitalDetails.click_PatientName()).click();
+		public static By click_appointment()
+		{
+					return	By.xpath("(//a[@class='cds--side-nav__link'])[1]");
+		}
+
+		public static By click_CreateAppointment()
+		{
+			
+			return	By.xpath("//button[@aria-label='Search Patient Button']");
+		}
+		
+		
+		public static By searchby_name() {
+			
+			return By.xpath("(//input[@class='cds--search-input'])[2]");
+		
+		}
+
+
+		public static By search_button() {
+			return By.xpath("//button[@type='submit']");
+			
+			
+		}
+		public static  By clickOnStartVisit()
+		{
+			
+			return By.xpath("//button[@class='cds--btn cds--btn--primary']");
+		}
+
+		public static  By selectVisit_type()
+		{
+			
+			return By.xpath("(//input[@class='cds--search-input'])[2]");
+		}
+
+		
+	}
+	
+}

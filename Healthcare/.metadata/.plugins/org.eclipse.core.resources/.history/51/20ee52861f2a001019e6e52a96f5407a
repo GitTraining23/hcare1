@@ -1,0 +1,26 @@
+package locPages;
+
+import org.openqa.selenium.By;
+
+public class AddVitalDetails {
+	public static By click_appointment()
+	{
+		
+		return	By.xpath("(//a[@class='cds--side-nav__link'])[1]");
+	}
+
+	
+	public static By searchby_name() {
+		
+		return By.xpath("(//input[@class='cds--search-input'])[2]");
+	
+	}
+
+
+	public static By search_button() {
+		return By.xpath("//button[@type='submit']");
+		
+		
+	}
+
+}

@@ -1,0 +1,70 @@
+package testClasses;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+import locPages.AddAppointmentPage;
+import utilities.BaseClass;
+
+public class AddAppointmentTest extends BaseClass{
+	
+	AddAppointmentPage aap=new AddAppointmentPage();
+	LoginTest lt=new LoginTest();
+
+	@Test
+	public void Add_Appointment() throws InterruptedException
+	{
+		lt.excuteLoginTest();
+		driver.findElement(By.xpath(aap.click_Appointment())).click();
+		driver.findElement(By.xpath(aap.click_CreateAppointment())).click();
+		driver.findElement(By.xpath(aap.searchby_name())).sendKeys("john1 dave1");
+		driver.findElement(By.xpath(aap.search_button())).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(aap.click_Id())).click();
+		
+		WebElement sellocation=driver.findElement(By.xpath(aap.sel_Location()));
+		Select sel=new Select(sellocation);
+		sel.selectByVisibleText("Outpatient Clinic");
+		
+		WebElement selservice=driver.findElement(By.xpath(aap.sel_Service()));
+		Select selser=new Select(selservice);
+		selser.selectByValue("General Medicine service");
+		
+		WebElement selAppoint=driver.findElement(By.xpath(aap.sel_AppType()));
+		Select selapp=new Select(selAppoint);
+		selapp.selectByVisibleText("Scheduled");
+		
+		driver.findElement(By.xpath(aap.app_duration())).sendKeys("20");
+		driver.findElement(By.xpath(aap.save_closebut())).click();
+		driver.findElement(By.xpath(aap.searchOnTable())).sendKeys("john1 dave1");
+		
+		List<WebElement> rows= driver.findElements(By.xpath(aap.val_table()));
+		System.out.println(rows.size());
+		
+
+		for(int i=1;i<=rows.size();i++)
+		{				
+			//String tab="(//table[@class='cds--data-table cds--data-table--sm cds--data-table--sort cds--data-table--zebra cds--data-table--visible-overflow-menu'])[1]/tbody/tr";
+
+			//WebElement name=driver.findElement(By.xpath("(//table[@class='cds--data-table cds--data-table--sm cds--data-table--sort cds--data-table--zebra cds--data-table--visible-overflow-menu'])[1]/tbody/tr[i]//td[2]"));
+			//div[@class='cds--data-table-content']//tbody//tr[@class="cds--parent-row"][2]/td[2]
+			addImplicitWait();
+			WebElement name=driver.findElement(By.xpath("//div[@class='cds--data-table-content']//tbody//tr[@class='cds--parent-row']["+i+"]//td[2]"));
+						System.out.println(name.getText());
+						addImplicitWait();
+
+			if(name.getText().equalsIgnoreCase("john1 dave1"))
+					
+			{
+				System.out.println("found"+ name.getText());
+			}
+		
+		}
+		
+	}
+	
+}

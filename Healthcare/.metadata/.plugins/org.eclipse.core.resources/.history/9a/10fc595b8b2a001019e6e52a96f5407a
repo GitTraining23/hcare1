@@ -1,0 +1,33 @@
+package locPages;
+
+import org.openqa.selenium.By;
+
+public class AddVitalDetails {
+	
+	/*public static By click_PatientName()
+	{
+		//return	By.xpath("//a[@href='/openmrs/spa/patient/be1795e1-85c3-4e1d-adee-9b05d5f424c7/chart']");
+		return By.xpath("//a[@href='/openmrs/spa/patient/831f0df7-b196-41f4-9d03-ae898fd01065/chart']");
+	
+	}*/
+
+	
+	addExplicitWait(AddVitalDetails.click_appointment());
+	driver.findElement(AddVitalDetails.click_appointment()).click();
+	
+	addExplicitWait(AddVitalDetails.click_CreateAppointment());
+	driver.findElement(AddVitalDetails.click_CreateAppointment()).click();
+	
+	addExplicitWait(AddVitalDetails.searchby_name());
+	driver.findElement(AddVitalDetails.searchby_name()).sendKeys("bill2 tim2");
+
+	addExplicitWait(AddVitalDetails.search_button());
+	driver.findElement(AddVitalDetails.search_button()).click();
+
+	addExplicitWait(AddVitalDetails.clickOnStartVisit());
+	driver.findElement(AddVitalDetails.clickOnStartVisit()).click();
+	
+	addExplicitWait(AddVitalDetails.selectVisit_type());
+	driver.findElement(AddVitalDetails.selectVisit_type())
+	
+}

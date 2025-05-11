@@ -1,0 +1,195 @@
+package locPages;
+
+import org.openqa.selenium.By;
+
+
+public class AddVitalDetailPage {
+	
+	
+	public static By click_appointment()
+	{
+				//return	By.xpath("(//a[@class='cds--side-nav__link'])[1]");
+		return By.xpath("//a[@href='/openmrs/spa/home/appointments']");
+	}
+
+	public static By click_CreateAppointment()
+	{
+		
+		return	By.xpath("//button[@aria-label='Search Patient Button']");
+	}
+	
+	
+	public static By searchby_name() {
+		
+		return By.xpath("(//input[@class='cds--search-input'])[2]");
+	
+	}
+
+
+	public static By search_button() {
+		return By.xpath("//button[@type='submit']");
+		
+		
+	}
+	
+	
+	//if its url2=https://demo.ozone-his.com you have to provide this
+	
+	
+	public static  By recordVitals()
+	{						
+		//class="cds--btn cds--btn--lg cds--layout--size-lg cds--btn--ghost"
+						
+					
+		return By.xpath("//button[@class='cds--btn cds--btn--lg cds--layout--size-lg cds--btn--ghost']");
+	
+	}
+	
+	//button[@class="cds--btn cds--btn--primary"]
+	public static  By clickOnStartVisit()
+	{
+		
+		return By.xpath("//button[@class='cds--btn cds--btn--primary']");
+	}
+
+	public static  By selectVisit_type()
+	{
+		
+		return By.xpath("(//input[@class='cds--search-input'])[2]");
+	}
+
+	
+			public static  By selectVisittype_text()
+			{
+				
+				return By.xpath("	(//span[@class='cds--radio-button__label-text'])[3]");
+			}
+
+
+			
+
+			public static  By select_punctuality()
+			{
+				
+				return By.xpath("(//select[@class='cds--select-input'])[5]");
+			}
+
+
+			
+			public static  By click_StartVisitButton()
+			{
+				
+				return By.xpath("//button[@type='submit']");
+			}
+			
+			
+			//button[@class='cds--btn cds--btn--lg cds--layout--size-lg cds--btn--ghost']
+			public static  By clickRecord_vitals()
+			{
+				//return By.xpath("//button[@class='cds--btn cds--btn--lg cds--layout--size-lg cds--btn--ghost']");
+				return By.xpath("//button[@type='button' and text()='vital signs']");
+				 
+			}
+
+			//input[@name='Temperature']
+			public static  By add_Temp()
+			{
+				
+				return By.xpath("//input[@name='Temperature']");
+			}
+			//input[@name='systolic']
+			public static  By add_Systolic()
+			{
+				
+				return By.xpath("//input[@name='systolic']");
+			}
+		
+		//input[@name='diastolic']
+			public static  By add_Diastolic()
+			{
+				
+				return By.xpath("//input[@name='diastolic']");
+			}
+		//input[@name='Pulse']
+			public static  By add_Pulse()
+			{
+				
+				return By.xpath("//input[@name='Pulse']");
+			}
+		//input[@name='Respiration rate']
+			public static  By add_Respiration()
+			{
+				
+				return By.xpath("//input[@name='Respiration rate']");
+			}
+		//input[@name='Oxygen saturation']
+			public static  By add_OxygenSat()
+			{
+				
+				return By.xpath("//input[@name='Oxygen saturation']");
+			}
+		//div[@class='cds--text-area__wrapper']
+			public static  By add_Notes()
+			{
+				
+				return By.xpath("//textarea[@name='Notes']");
+			}
+		//input[@name='Weight']*/
+			public static  By add_Weight()
+			{
+				
+				return By.xpath("//input[@name='Weight']");
+			}
+
+			//name="Height"
+					public static  By add_Height()
+			{
+				
+				return By.xpath("//input[@name='Height']");
+			}
+
+
+					public static  By add_BMI()
+					{
+						
+						return By.xpath("//input[@name='BMI']");
+					}
+
+
+					public static  By add_MUAC()
+					{
+						
+						return By.xpath("//input[@name='MUAC']");
+					}
+					
+					//type="submit"
+					public static  By saveAndClose()
+					{
+						
+						return By.xpath("//button[@type='submit']");
+					}
+					
+					
+					public static By check_vitalHistory()
+					{
+						return By.linkText("Vitals history");
+					}
+					
+
+					public static By click_Actions()
+					{
+						return By.xpath("//span[@class='gFjL-10of83qbNS98PN9Iw==']");
+					}
+					
+					public static By click_endVisit()
+					{
+						return By.xpath("(//div[@class='cds--overflow-menu-options__option-content'])[2]");
+					}
+					
+					public static By cofirm_endVisit()
+					{
+						return By.xpath("//button[@class='cds--btn cds--btn--danger']");
+					}
+					
+					
+}

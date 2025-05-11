@@ -1,0 +1,49 @@
+package testClasses;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import locPages.LoginPage;
+import utilities.BaseClass;
+
+public class AddvitTest extends BaseClass{
+	
+	LoginTest lt=new LoginTest();
+	@Test
+	public void recordvitals() throws InterruptedException {
+	
+		lt.excuteLoginTest();
+	List<WebElement> rows=driver.findElements(By.xpath("(//div[@class='cds--data-table-content'])[1]//tbody//tr[@class='cds--parent-row']"));
+	//(//div[@class="cds--data-table-content"])[1]//tbody//tr[@class="cds--parent-row"][1]//td[4]
+	System.out.println(rows.size());
+	
+
+	for(int i=1;i<=rows.size();i++)
+	{				
+		
+		addImplicitWait();
+		WebElement name=driver.findElement(By.xpath("(//div[@class='cds--data-table-content'])[1]//tbody//tr[@class='cds--parent-row']["+i+"]//td[4]"));
+					System.out.println(name.getText());
+					addImplicitWait();
+
+		if(name.getText().equalsIgnoreCase("steve max"))
+				
+		{
+			System.out.println("haii");
+			//driver.findElement(By.xpath("(//a[@href='openmrs/spa/patient/49a69795-46ab-4b84-b0ac-722bc253c413/chart'])[1]")).click();
+			//driver.findElement(By.linkText("steve max")).click();
+			driver.findElement(By.linkText("George Anderson")).click();
+			driver.close();
+		}
+		
+	
+	}
+	
+	
+	
+	
+	}
+}

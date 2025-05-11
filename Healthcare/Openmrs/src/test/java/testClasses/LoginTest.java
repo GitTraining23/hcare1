@@ -1,0 +1,40 @@
+package testClasses;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+
+import locPages.LoginPage;
+import utilities.BaseClass;
+
+public class LoginTest extends BaseClass {
+	
+	
+	LoginPage lp=new LoginPage();
+	@Test(priority=0,groups={"@sanity"})
+	public void excuteLoginTest() throws InterruptedException
+	{
+		addImplicitWait();
+		//Thread.sleep(3000);
+		
+		driver.findElement(By.xpath(lp.getUserName())).sendKeys("admin");
+		driver.findElement(By.xpath(lp.Continue())).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(lp.getPassword())).sendKeys("Admin123");
+		driver.findElement(By.xpath(lp.clickLogin())).click();
+		//driver.get("http://dev3.openmrs.org/openmrs/spa/home?lang=eng");
+		//driver.get("https://o3.openmrs.org/openmrs/spa/home?lang=eng");
+
+		
+		/*driver.findElement(By.xpath(lp.getUserName())).sendKeys("jdoe");
+		driver.findElement(By.xpath(lp.Continue())).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(lp.getPassword())).sendKeys("password");
+		addImplicitWait();*/
+		
+		
+	}
+	
+	
+	
+
+}

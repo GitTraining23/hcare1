@@ -1,0 +1,85 @@
+package locPages;
+
+public class AddAppointmentPage  {
+	
+	public static String click_Appointment() {
+		String click_Appointment="(//a[@class='cds--side-nav__link'])[1]";
+		return click_Appointment;
+		
+	}
+	
+	public static String click_CreateAppointment() {
+		String create_Appointment="//button[@aria-label='Search Patient Button']";
+		return create_Appointment;
+		
+	}
+	
+	public static String searchby_name() {
+		//String search_name=	 "//input[@class='cds--search-input' and @placeholder='Search for a patient by name or identifier number']";
+		String search_name="(//input[@class='cds--search-input'])[2]";
+		return search_name;
+		
+	}
+	public static String search_button() {
+		String search_button="//button[@type='submit']";
+		return search_button;
+		
+	}
+	public static String click_Id() {
+		String click="//span[@class='_7O7gKi8oSk8dU4N7z9kfrQ==']";
+		return click;
+		
+	}
+	
+	public static String sel_Location() {
+		String sel_location="//select[@id='location']";
+		
+		return sel_location;
+		
+	}
+	
+	public static String sel_Service() {
+		String sel_serv="//select[@id='service']";
+		
+		return sel_serv;
+		
+	}
+	
+	public static String sel_AppType() {
+		String sel_Apptype="//select[@id='appointmentType']";
+		
+		return sel_Apptype;
+		
+	}
+
+	//input[@id="duration"]
+	public static String app_duration() {
+		String dura="//input[@id='duration']";
+		return dura;
+		
+	}
+	
+	
+	public static String save_closebut() {
+		String savebutton="//button[@class='-esm-appointments__appointments-form__button___Qxg5L cds--btn cds--btn--primary']";
+		
+		return savebutton;
+		
+	}
+	
+	
+	/*	public static String searchOnTable()
+		{
+		String seaOntable="//input[@class='cds--search-input']";
+		return seaOntable;
+	     }*/
+	public static String val_table()
+	{
+		//String tab="(//table[@class='cds--data-table cds--data-table--sm cds--data-table--sort cds--data-table--zebra cds--data-table--visible-overflow-menu'])[1]/tbody/tr";
+		String tab="//div[@class=\"cds--data-table-content\"]//tbody//tr";
+		//String tab=//div[@class='cds--data-table-content']//tbody//tr[@class='cds--parent-row']
+		return tab;
+	}
+
+
+}

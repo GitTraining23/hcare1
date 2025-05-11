@@ -1,0 +1,77 @@
+package locPages;
+
+import org.openqa.selenium.By;
+
+public class StartVisitPage {
+	
+	
+	public static By click_appointment()
+	{
+				//return	By.xpath("(//a[@class='cds--side-nav__link'])[1]");
+		return By.xpath("//a[@href='/openmrs/spa/home/appointments']");
+	}
+
+	public static By click_CreateAppointment()
+	{
+		
+		return	By.xpath("//button[@aria-label='Search Patient Button']");
+	}
+	public static  By clickOnStartVisit()
+	{
+		
+		return By.xpath("//button[@class='cds--btn cds--btn--primary']");
+	}
+
+	
+	public static By searchby_name() {
+		
+		return By.xpath("(//input[@class='cds--search-input'])[2]");
+	
+	}
+
+
+	public static By search_button() {
+		return By.xpath("//button[@type='submit']");
+		
+		
+	}
+	
+	
+	//if its url2=https://demo.ozone-his.com you have to provide this
+		
+	
+	
+	
+	public static  By selectVisit_type()
+	{
+		
+		return By.xpath("(//input[@class='cds--search-input'])[2]");
+	}
+
+	
+			public static  By selectVisittype_text()
+			{
+				
+				return By.xpath("	(//span[@class='cds--radio-button__label-text'])[3]");
+			}
+
+
+			
+
+			public static  By select_punctuality()
+			{
+				
+				return By.xpath("(//select[@class='cds--select-input'])[5]");
+			}
+
+
+			
+			public static  By click_StartVisitButton()
+			{
+				
+				return By.xpath("//button[@type='submit']");
+			}
+			
+			
+
+}

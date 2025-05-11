@@ -1,0 +1,71 @@
+package testClasses;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+//import locPages.Actions;
+import locPages.RegisterPatientPage;
+import utilities.BaseClass;
+import utilities.ListenersImplementation;
+import org.openqa.selenium.interactions.Actions;
+//@Listeners(ListenersImplementation.class)
+
+public class RegisterPatientTest extends BaseClass {
+	
+	
+	RegisterPatientPage rpp=new RegisterPatientPage();
+	LoginTest lt=new LoginTest();
+	 @DataProvider(name="myDp1")
+	 public Object[][] registerPatData()
+	 {
+		 return new Object[][] {{"john2","dave2"},{"bill2","tim2"}};
+	 }
+	
+	
+	
+	@Test(dataProvider="myDp1",groups={"@sanity"})
+	public void AddPatient(String fn, String ln) throws InterruptedException
+	{
+		addImplicitWait();
+		lt.excuteLoginTest();
+			
+		//addExplicitWait(RegisterPatientPage.click_AddPatient());
+		driver.findElement(By.xpath(rpp.click_AddPatient())).click();
+		//add patient
+		
+				driver.findElement(By.xpath(rpp.click_AddPatient())).click();
+				//driver.findElement(By.xpath(lp.Patient_Name_Known("no"))).click();;
+				driver.findElement(By.xpath(rpp.pat_firstName())).sendKeys(fn);
+				driver.findElement(By.xpath(rpp.pat_lName())).sendKeys(ln);
+				scrolldown();	
+				WebElement gender=driver.findElement(By.xpath(rpp.sel_Gender()));
+				JavascriptExecutor js1=(JavascriptExecutor)driver;
+				js1.executeScript("arguments[0].click()", gender);
+				
+				Thread.sleep(2000);
+								
+				driver.findElement(By.xpath(rpp.dobdetail())).click();
+				driver.findElement(By.xpath(rpp.pat_Age())).sendKeys("40");
+				driver.findElement(By.xpath(rpp.pat_Addr())).sendKeys("mumbai");
+				driver.findElement(By.xpath(rpp.register_Button())).click();
+				WebElement patID=driver.findElement(By.xpath(rpp.validate_PatID()));
+				
+				if(patID.isDisplayed()==true)
+				{
+					System.out.println("TestCase Passed");
+				}
+			
+				else {
+					throw new NullPointerException ("patient reg failed");
+				}
+
+}
+	
+	
+	
+}

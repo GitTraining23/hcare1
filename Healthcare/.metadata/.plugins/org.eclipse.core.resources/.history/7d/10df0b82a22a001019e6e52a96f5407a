@@ -1,0 +1,6 @@
+url=https://o3.openmrs.org/openmrs/spa/home?lang=eng
+url1=https://o3.openmrs.org/openmrs/spa/login
+url2=https://demo.ozone-his.com
+browser=chrome
+#browser=edge
+#browser=firefox

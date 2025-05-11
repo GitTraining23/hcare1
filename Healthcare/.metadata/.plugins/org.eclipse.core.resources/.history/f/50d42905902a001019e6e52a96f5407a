@@ -1,0 +1,69 @@
+package locPages;
+
+import org.openqa.selenium.By;
+
+
+public class AddVitalDetails {
+	
+	/*public static By click_PatientName()
+	{
+		//return	By.xpath("//a[@href='/openmrs/spa/patient/be1795e1-85c3-4e1d-adee-9b05d5f424c7/chart']");
+		return By.xpath("//a[@href='/openmrs/spa/patient/831f0df7-b196-41f4-9d03-ae898fd01065/chart']");
+	
+	}*/
+	public static By click_appointment()
+	{
+				return	By.xpath("(//a[@class='cds--side-nav__link'])[1]");
+	}
+
+	public static By click_CreateAppointment()
+	{
+		
+		return	By.xpath("//button[@aria-label='Search Patient Button']");
+	}
+	
+	
+	public static By searchby_name() {
+		
+		return By.xpath("(//input[@class='cds--search-input'])[2]");
+	
+	}
+
+
+	public static By search_button() {
+		return By.xpath("//button[@type='submit']");
+		
+		
+	}
+	
+	
+	//if its url2=https://demo.ozone-his.com you have to provide this
+	
+	
+	public static  By recordVitals()
+	{
+		
+		return By.xpath("//button[@class='cds--btn cds--layout--size-lg cds--btn--ghost']");
+	}
+	
+	//button[@class="cds--btn cds--btn--primary"]
+	public static  By clickOnStartVisit()
+	{
+		
+		return By.xpath("//button[@class='cds--btn cds--btn--primary']");
+	}
+
+	public static  By selectVisit_type()
+	{
+		
+		return By.xpath("(//input[@class='cds--search-input'])[2]");
+	}
+
+	
+			public static  By selectVisit_type1()
+			{
+				
+				return By.xpath("	(//span[@class='cds--radio-button__label-text'])[3]");
+			}
+
+}

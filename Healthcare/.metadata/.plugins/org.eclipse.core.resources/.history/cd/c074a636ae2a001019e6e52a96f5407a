@@ -1,0 +1,44 @@
+package testClasses;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import locPages.LoginPage;
+import utilities.BaseClass;
+
+public class AddvitTest extends BaseClass{
+	
+	LoginTest lt=new LoginTest();
+	public void recordvitals() throws InterruptedException {
+	
+	
+	List<WebElement> rows=driver.findElements(By.xpath("(//div[@class='cds--data-table-content'])[1]//tbody//tr[@class='cds--parent-row'][1]//td[4]"));
+	//(//div[@class="cds--data-table-content"])[1]//tbody//tr[@class="cds--parent-row"][1]//td[4]
+	System.out.println(rows.size());
+	
+
+	for(int i=1;i<=rows.size();i++)
+	{				
+		lt.excuteLoginTest();
+		addImplicitWait();
+		WebElement name=driver.findElement(By.xpath("(//div[@class='cds--data-table-content'])[1]//tbody//tr[@class='cds--parent-row']["+i+"]//td[4]"));
+					System.out.println(name.getText());
+					addImplicitWait();
+
+		if(name.getText().equalsIgnoreCase("steve max"))
+				
+		{
+			driver.findElement(By.xpath("(//div[@class='cds--data-table-content'])[1]//tbody//tr[@class='cds--parent-row']["+i+"]//td[4]")).click();
+
+		}
+		
+	
+	}
+	
+	
+	
+	
+	}
+}

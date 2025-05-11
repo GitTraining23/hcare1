@@ -1,0 +1,42 @@
+package testClasses;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+import locPages.AddAppointmentPage;
+import utilities.BaseClass;
+
+public class AddAppointmentTest extends BaseClass{
+	
+	AddAppointmentPage aap=new AddAppointmentPage();
+	LoginTest lt=new LoginTest();
+
+	@Test
+	public void Add_Appointment() throws InterruptedException
+	{
+		lt.excuteLoginTest();
+		driver.findElement(By.xpath(aap.click_Appointment())).click();
+		driver.findElement(By.xpath(aap.click_CreateAppointment())).click();
+		driver.findElement(By.xpath(aap.searchby_name())).sendKeys("brandan mark");
+		driver.findElement(By.xpath(aap.search_button())).click();
+		driver.findElement(By.xpath(aap.click_Id())).click();
+		
+		WebElement sellocation=driver.findElement(By.xpath(aap.sel_Location()));
+		Select sel=new Select(sellocation);
+		sel.selectByVisibleText("Outpatient Clinic");
+		
+		WebElement selservice=driver.findElement(By.xpath(aap.sel_Service()));
+		Select selser=new Select(selservice);
+		selser.selectByValue("General Medicine service");
+		
+		WebElement selAppoint=driver.findElement(By.xpath(aap.sel_AppType()));
+		Select selapp=new Select(selAppoint);
+		selapp.selectByVisibleText("Scheduled");
+		driver.findElement(By.xpath(aap.save_closebut()));
+		
+		
+	}
+	
+}

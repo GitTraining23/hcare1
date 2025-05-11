@@ -1,0 +1,8 @@
+#url=https://o3.openmrs.org/openmrs/spa/home?lang=eng
+#url=https://o3.openmrs.org/openmrs/spa/login
+url=http://dev3.openmrs.org/openmrs/spa/home
+#url3=https://demo.ozone-his.com
+browser=chrome
+#browser=edge
+#browser=firefox
+patFullName=jack martin
