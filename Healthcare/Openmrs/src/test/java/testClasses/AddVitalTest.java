@@ -42,7 +42,7 @@ public class AddVitalTest extends BaseClass {
 		addExplicitWait(AddVitalDetailPage.clickOnStartVisit());
 		WebElement startvisit=driver.findElement(AddVitalDetailPage.clickOnStartVisit());
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click()",startvisit);
+		js.executeScript("arguments[0].click();",startvisit);
 		//driver.findElement(AddVitalDetailPage.clickOnStartVisit()).click();
 		
 		addExplicitWait(AddVitalDetailPage.selectVisit_type());
