@@ -98,8 +98,11 @@ public class BaseClass {
 	public static void addExplicitWait(By locator)
 	{
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
+
 		//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 	
 	@AfterMethod(alwaysRun=true)
