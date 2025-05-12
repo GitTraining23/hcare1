@@ -40,7 +40,7 @@ public class AddAppointmentTest extends BaseClass{
 		WebElement clickid=driver.findElement(By.xpath(aap.click_Id()));
 
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click()",clickid);
+		js.executeScript("arguments[0].click();",clickid);
 		//arguments[0].click()
 		
 		WebElement sellocation=driver.findElement(By.xpath(aap.sel_Location()));
